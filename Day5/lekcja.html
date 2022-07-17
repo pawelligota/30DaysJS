@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Lekcja Dzien 5</title>
+    </head>
+    <body>
+        <script>
+            let tablica = ['Kupa', 'Gowno', 'Sraka']
+            console.log(tablica)
+            let dlugosc_tablicy = tablica.length
+            console.log(tablica.length)
+            console.log(tablica[0])
+            console.log(tablica[dlugosc_tablicy-1])
+
+            let txt = 'I love teaching and empowering people. I teach HTML, CSS, JS, React, Python.'
+            txt = txt.replaceAll('.','')
+            txt = txt.replaceAll(',','')
+            const slowa_txt = txt.split(' ')
+            console.log(slowa_txt)
+
+            const arr = Array()
+            console.log(arr)
+            const osiem_pustych_wartosci = Array(8)
+            console.log(osiem_pustych_wartosci)
+
+            // .fill() wypelnia tablice warunkiem w ()
+            const osiemXDwtablicy = Array(6).fill('XD')
+            console.log(osiemXDwtablicy)
+
+            // .concat(druga_tablca)Konkatenacja tablic 
+            const osiem_polaczone = osiem_pustych_wartosci.concat(osiemXDwtablicy)
+            console.log(osiem_polaczone)
+
+            // .lengthpobieranie dlugosci tablicy
+            console.log(osiem_polaczone.length)
+
+            // .indexOf() przeszukuje tablice w poszukiwaniu argumentu i zwraca jego index, jezeli nie znajdzie to -1.
+            console.log(osiem_polaczone.indexOf('XD'))
+
+            // .lastIndexOf() to co o gory tylko zwraca ostatnie wystepowanie
+            console.log(osiem_polaczone.lastIndexOf('XD'))
+
+            // .includes() szuka argumentu w tablicy zwraca true/falce
+            console.log(osiem_polaczone.includes('XD'))
+            console.log(osiem_polaczone.includes('DX'))
+
+            // .isArray() sprawdza czy typ danych jest tablica
+            console.log(Array.isArray(osiem_polaczone))
+            console.log(Array.isArray(txt))
+
+            // .toString() konwertuje tablice do stringa
+            //console.log(osiem_polaczone.toString())
+
+            // .join() laczy dane z tablicy do stringa. W argumencie mozna wpisac seperator elementow.
+            const tabliczka = Array(10).fill(2)
+            console.log(tabliczka.join(' XD '))
+            const totalne_wiochy = [
+                'Ligota Mala',
+                'Ligota Wielka',
+                'Krzeczyn',
+                'Zimnice',
+                'Szuwary'
+            ]
+            console.log(totalne_wiochy.join(' '))
+
+            // .slice() wycina elementy z tablicy. Bierze dwa argumenty, start i koniec wycinania. NIE ZAWIERA OSTATNIEJ POZYCJI
+            console.log(totalne_wiochy.slice())     // nie wycina
+            console.log(totalne_wiochy.slice(0))    // nie wycina
+            console.log(totalne_wiochy.slice(1,4))
+        
+            // .splice() 1. pozycja startowa 2. ile pozycji usunac 3. Co dodac
+            // ????????????????????
+            const cyfereczki = [1,2,3,4,5,6,7,8]
+            cyfereczki_splice = cyfereczki.splice(0,3,3,2,1)
+            console.log(cyfereczki)
+            myFish = ["anioł", "klaun", "mandarynka", "jesiotr"]
+            console.log(myFish)
+            usuniete = myFish.splice(2, 1, "Kupsko")
+            console.log(myFish)
+
+            let skala_czasu = ['Dawno', 'Kiedys', 'Teraz', 'Za Niedlugo', 'W przyszlosci']
+
+            // .pop() usuwa ostatni element tablicy
+            skala_czasu.pop()
+            console.log(skala_czasu)
+
+            // .push() dodaje argument na koniec tablicy
+            skala_czasu.push('W przyszlosci')
+            console.log(skala_czasu)
+        
+            // .shift() usuwa pierwszy element tablicy
+            skala_czasu.shift()
+            console.log(skala_czasu)
+
+            // .unshift() dodaje element do poczatku tablicy
+            skala_czasu.unshift('Dawno')
+            console.log(skala_czasu)
+
+            // .reverse() odwraca kolejnosc tablicy
+            skala_czasu.reverse()
+            console.log(skala_czasu)
+            
+            // .sort() sortuje tablice?
+
+            // Tablica tablic
+
+
+
+        </script>
+    </body>
+</html>

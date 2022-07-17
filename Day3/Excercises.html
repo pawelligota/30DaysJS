@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Zadania Dzien 3 </title>
+    </head>
+    <body>
+        <script>
+            const data = new Date()
+            //1.
+            let imie = 'Pawel'
+            let nazwisko = 'Chmiel'
+            let kraj = 'Polska'
+            let miasto = 'Wroclaw'
+            let wiek = 22
+            let ismarried = false
+            let rok = data.getFullYear()
+            console.log(typeof(imie), typeof(nazwisko), typeof(kraj), typeof(miasto), typeof(wiek),typeof(ismarried),typeof(rok))
+
+            //2.
+            console.log(10 === '10')
+
+            //3.
+            console.log(parseInt('9.8') === 10)
+
+            //4.
+            console.log('3 Truthy statements',
+            1 == true,
+            0 == '',
+            0 == ' '
+            )
+            console.log('3 Falsy statements',
+            1 === true,
+            0>0,
+            1 != 0
+            )
+
+            //5.
+            console.log(
+            4 > 3,
+            4 >= 3,
+            4 < 3,
+            4 <= 3,
+            4 == 4,
+            4 === 4,
+            4 != 4,
+            4 !== 4,
+            4 != '4',
+            4 == '4',
+            4 === '4'
+            )
+
+            //6.
+            console.log(
+            4 > 3 && 10 < 12 ,   //True
+            4 > 3 && 10 > 12  ,  //False
+            4 > 3 || 10 < 12   , //True
+            4 > 3 || 10 > 12    ,//True
+            !(4 > 3)            ,//False
+            !(4 < 3)            ,//True
+            !(false)            ,//true
+            !(4 > 3 && 10 < 12) ,//False
+            !(4 > 3 && 10 > 12) ,//True
+            !(4 === '4')        //True
+            
+            )
+
+            //-------LEVEL 2 EXCERCISES------
+
+            //1.
+            /*
+            let b = prompt('Podaj podstawe trojkata')
+            let h = prompt('Poda wysokosc trojkata')
+            let pole = b*h*0.5
+            alert(`Pole trojkata wynosi ${pole}`)
+            */
+
+            //2.
+            /*
+            let a = parseInt(prompt('Podaj bok a trojkata'))
+            let b = parseInt(prompt('Podaj bok b trojkata'))
+            let c = parseInt(prompt('Podaj bok c trojkata'))
+            let obwod = a + b + c
+            alert(`Obwód trójkąta wynosi: ${obwod}`)
+            */
+
+            //3.
+            /*
+            let a = parseInt(prompt('Podaj bok a prostokata'))
+            let b = parseInt(prompt('Podaj bok b prostokata'))
+            pole_prostokata = a * b
+            obwod_prostokata = a + b
+            alert(`Pole prostokata: ${pole_prostokata} Obwod prostokata: ${obwod_prostokata}`)
+            */
+
+            //4.
+            /*
+            let r = parseInt(prompt('Podaj promień koła'))
+            const pi = Math.PI
+            let pole_kola = pi * r * r
+            let obwod_kola = 2 * pi * r
+            alert(`Pole kola wynosi: ${pole_kola}\n Obwód koła wynosi: ${obwod_kola}`)
+            */
+
+            //5.
+            /*
+            prompt(`Miejsce przeciecia: ${x}`)
+            let y = 2 * x -2
+            */
+
+            //6.
+            let x1 = 2
+            let y1 = 2
+            let x2 = 6
+            let y2 = 10
+            let wykres = (10-2)/(6-2)
+            console.log(`Wykres funkcji m o punktach (2,2), (6,10) to: ${wykres}`)
+
+            //7.
+
+            //8.
+            //let wartosc_y = x*x + 6x + 9 (-3 XD)
+
+            //9.
+            /*
+            let iloscgodzin = prompt('Podaj ilosc godzin: ')
+            let stawka = prompt('Podaj stawke godzinowa')
+            let wyplata = iloscgodzin * stawka
+            alert(`Twoja wyplata: ${wyplata}`)
+            */
+
+            //10.
+            /*
+            let twoje_imie = prompt('Podaj swoje imie')
+            if (twoje_imie.length>7){
+                alert('Twoje imie jest dlugie')
+            } else {
+                alert('Twoje imie jest krótkie')
+            }
+            */
+
+            //11.
+            if(imie.length>nazwisko.length){
+                console.log(`Twoje imie, ${imie} jest dluzsze niz twoje nazwisko, ${nazwisko}`)
+            } else {
+                console.log(`Twoje nazwisko, ${nazwisko} jest dluzsze niz twoje, imie ${imie} `)
+            }
+            
+            //12.
+            let twoj_wiek = 51
+            console.log('Roznica wieku: ', Math.abs(wiek - twoj_wiek))
+
+            //13.
+            /*
+            let data_urodzenia = prompt('Podaj rok urodzenia')
+            if ((rok - data_urodzenia)>=18){
+                console.log('Masz ',rok-data_urodzenia,' lat. Mozesz jezdzic.')
+            } else {
+                console.log('Masz ',rok-data_urodzenia,' lat. Nie mozesz jezdzic.')
+            }
+            */
+
+            //14.
+            /*
+            let ilosc_lat = prompt('Podaj ilosc lat.')
+            console.log('Przezyles juz: ',ilosc_lat*365*24*60*60, ' sekund.')
+            */
+
+            //15.
+            let miesiac = data.getMonth() + 1
+            let dzien = data.getDate()
+            let dzien_tygodnia = data.getDay()
+            let godzina = data.getHours()
+            let minuta = data.getMinutes()
+            console.log(`${rok}-${miesiac}-${dzien} ${godzina}:${minuta}`) 
+            console.log(`${dzien}-${miesiac}-${rok} ${godzina}:${minuta}`)
+            console.log(`${dzien}/${miesiac}/${rok} ${godzina}:${minuta}`)
+
+            //16.
+            if(godzina<10){
+                godzina = '0'+godzina
+            }
+            if(minuta<10){
+                minuta = '0'+minuta
+            }
+            if(miesiac<10){
+                miesiac = '0'+miesiac
+            }
+            if(dzien<10){
+                dzien = '0'+dzien
+            }
+            console.log(`${rok}-${miesiac}-${dzien} ${godzina}:${minuta}`) 
+
+        </script>
+    </body>
+</html>
