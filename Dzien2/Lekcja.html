@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Dzien2 Kox</title>
+  </head>
+  <body>
+     <script>
+      /*
+      -podstawowe "edycje tekstowe" stringow /n /t \'
+      -template strings ${} - placeholdery
+      -podstawowa konkatenacja ES5 i ES6-> trzeba uzywac ``
+      -Działania na stringach
+      -Wstep do podstawowych wyrażeń (regular expressions)
+      */
+
+     // konkatenacja (ES5) ESSA KYAT
+      let jedzenie = 'platki'
+      let smak = 'pyszne'
+      let opis_jedzenia = jedzenie + ' sa ' + smak
+
+      console.log(opis_jedzenia)
+
+      // umieszczanie specjalnych znaczkow w stringu za pomoca \ oraz edytory pokroju \n
+      console.log('Siema kurwa \n nowa linia')
+      console.log('jestem tu \t TERA TU')
+      console.log('Chuj wie \\ co to')
+      console.log('Aaaaa nie spodziewales sie \' tutaj tego znaczka essa \'')
+      console.log('\" ANI TEGO \"')
+
+      //Template Strings ${}  takie placeholdery? konkatenacja ES6 musi byc w `` a nie ''
+      let imie = 'Pawel'
+      let nazwisko = 'Chmiel'
+      let wiek_w_latach = 22
+      let dziewczyna = false
+      let dywizja
+      let mozg = null
+      let infoomie = `Mam na imie ${imie}.`
+      console.log(infoomie + ` Na nazwisko ${nazwisko}.`)
+
+      let liczba1 = 32
+      let liczba2 = 64
+      console.log(`${liczba1} jest wieksza niz ${liczba2}: ${liczba1 > liczba2}`)
+
+      // --------------Operacje na stringach--------------
+      let gra = 'Tibia'
+      console.log('Dlugosc slowa tibia to ' + gra.length + ' znakow.')
+      console.log(gra[1] + gra[3])
+      let pierwszalitera = gra[0]
+      // ?????????????????????????????? \/
+      let ostatnialitera = gra.length - 1
+      let ostatnia = gra[ostatnialitera]
+      console.log(`Pierwsza litera slowa Tibia to ${pierwszalitera} a ostatnia to ${ostatnia}`)
+
+      //lower upper case + wyciąganie poszczególnych znaków, slow ze stringa
+      let zdanie = 'Tibia To CIPSOFT'
+
+      console.log(zdanie.toUpperCase())
+      console.log(zdanie.toLowerCase())
+      console.log(zdanie.substr(6,2)) //substr bierze dwa argumenty 1. starting index 2.ile znakow uciac
+      console.log(zdanie.substr(9,7)) 
+      console.log(zdanie.substring(9,16)) //substring 1.Początkowy znak 2. Końcówy znak (NIE INCLUDUJE OSTATNIEGO ZNAKU trzeba dac 1 wiecej)
+      console.log(zdanie.substring(6))
+      console.log(zdanie.substring(9))
+
+      //split tworzy tablice wedle okreslonych podanych wartosci
+      let string = 'Moja mama jest nad morzem.'
+      console.log(string.split()) // tworzy tablice -> ["Moja mama jest nad morzem."]
+      console.log(string.split(' ')) // tworzy tablice oddzielajac na kazdy oddzielny obiekt ktory jest po spacji (XD) -> ["Moja", "mama", "jest", "nad", "morzem."]
+      console.log(string.split('')) // tworzy tablice oddzielajac kazda literke - > ["M", "o", "j", "a"] etc
+      let miasta = 'Monachium, Akwizgran, Berlin, Essen, Aachen'
+      console.log(miasta.split(','))
+      console.log(miasta.split(', '))
+
+      // trim() usuwa zbedne spacje w stringu
+      let string1 = '     o kurde           kot mi wskoczyl na klawiature      '
+      console.log(string1)
+      console.log(string1.trim())
+      console.log(string1.trim(' ')) // chyba nie ma roznicy ktory sie zastosuje
+
+      // includes(substring) sprawdza czy substringstring ktory podasz istnieje w stringu i zwraca true/false
+      let string3 = "Nie mozesz powiedziec women bez mezczyzna ;)"
+      console.log('Nie mozesz powiedziec women bez mezczyzna: ' + string3.includes('men')) // sprawdzilo czy w zdaniu jest men. I jest wiec returnuje TRUE
+
+      //replace(OldSubstring, NewSubstring)  POGCZAMP ZAMIENIA W STRINGU SLOWKO
+      let string4 = "Pawel to cwel"
+      console.log(string4.replace('cwel', 'kozak')) // cwel --> kozak
+
+      //charAt(index) praktycznie to samo co string5[]
+      let string5 = 'Krzysiu'
+      console.log(string5.charAt(2) + ' ' + string5[2])
+
+      //charCodeAt(index) bierze znak i zwraca jego ASCII
+      let string6 = 'PawEl'
+      console.log(string6.charCodeAt(3))
+
+      //indexOf(substring) bierze substringa i sprawdza jaki index ma jego pierwszy znak w tym stringu. Jezeli nie znajdzie zwroci -1
+      let string7 = 'Moje zdanie jest kurwa kozak'
+      console.log(string7.indexOf('jest')) // "jest" w moim zdaniu zaczyna sie na 12 indexie wiec zwroci 12
+      console.log(string7.indexOf('kupsko'))
+
+      //lastIndexOf(substring) to samo co wyzej tylko zwraca pierwszy index ostatniego miejsca w ktorym wystepuje dany substring
+      let string8 = 'Moje zdanie jest kurwa kozak. Jam jest pawel. Zdanie jest oks. Moje'
+      console.log(string8.lastIndexOf('jest')) //"jest" wystepuje 3 razy ale zwroci pierwszy index ostatniego "jest"
+      console.log(string8.lastIndexOf('Moje'))
+
+      //concat(substring, substring, substring) bierze wiele substringow i je SKLEJA POGU
+      let string9 = '1337'
+      console.log(string9.concat(',2137', 'JanPawelDrugi'))
+      console.log(string9.concat(',Marcy', 'panka'))
+
+      //startsWith(substring) sprawdza czy string zaczyna sie podanym substringiem
+      let string10 = "zdanie zaczyna sie tak"
+      console.log(string10.startsWith('zdanie')) // bedzie True bo string zaczyna sie "zdanie"
+      console.log(string10.startsWith('tak')) // bedzie false wiadomo
+
+      //endsWith(substring) przeciwnosc powyższego
+      console.log(string10.endsWith('tak'))
+      console.log(string10.endsWith('Zdanie'))
+
+      //search(substring) to samo co indexOf() ale mozna uzyc Regular expression/WYRAŻEŃ regularnych. Zwraca index
+      let string11 = 'Dobrze dobrze maluszku moj'
+      console.log(string11.search('moj'))
+
+      //match(substring) Wyciaga substringa ze stringa i wrzuca go w tablice. Mozna uzywac modyfikatorow np. g i d + etc. Mozna uzywac wyrazen
+      let string12 = 'Ja kocham JavaScript. Jezeli ja nie kocham Javascript to nie wiem co kocham.'
+      /*
+        Podstawowe wyrazenie miesci sie pomiedzy  /..../.
+      */
+      let patternJeden = /kocham/ // bez zadnych oznaczen to znajdzie pierwszy i go wrzuci w tablice
+      let patternDwa = /kocham/gi // g- szukac w calym tekscie(nie tylko pierwszy) i-wrazliwosc na wielkosc liter
+      console.log(string12.match('kocham'))
+      console.log(string12.match(patternJeden))
+      console.log(string12.match(patternDwa))
+      //Mozna uzywac do ekstraktowania cyrf z tekstu ;o
+      let string13 = 'Urodzilem sie o godzinie 11 w 2000 roku i mam urodziny 31 marca.'
+      let strSrch = /\d+/ // + oznacza jedno albo wiecej cyfrowa liczba np 1 albo 194 albo 12393
+      console.log(string13.match(strSrch)) // znajdzie pierwsza liczbe jedno lub wiecej cyfrowa i zwroci jej pierwszy index w tablicy
+      console.log(string13.match(/\d/g)) //['1', '1', '2', '0', '0', '0', '3', '1']
+      console.log(string13.match(/\d+/g)) // ['11', '2000', '31']
+
+      //repeat(n) <-- bierze liczbe za argument --- Powtarza stringa podaną ilosc razy xd
+      string14 = 'gowno '
+      console.log(string14.repeat(10))
+
+      //---------------------ZMIENIANIE TYPOW DANYCH---------------
+
+      //-----string do int------//
+      //parseInt()
+      let stringNumber = '15'
+      let stringNumberParseInt = parseInt(stringNumber) // 10 w incie
+      //number()
+      let stringNumberNumber = Number(stringNumber)     // 10 w incie
+      //+
+      let stringnumberPlus = +stringNumber              // 10 w incie
+      
+      //-----string do float------//
+      let stringNumberFloat = '21.37'
+      //parseFloat()
+      let stringNumberFloatParseFloat = parseFloat(stringNumberFloat) // 21.37 w incie
+      //Number()
+      let stringNumberFloatNumber = Number(stringNumberFloat)
+      // + sign
+      let stringNumberFloatPlus = +stringNumberFloat
+
+      //-----Float to int------//
+      let floatnum = 21.37
+      let floatnumInt = parseInt(floatnum)
+      console.log(floatnumInt)  // zwroci 21 bo zamienilismy floata w inta
+
+
+
+
+      /*
+        const losowa_liczba = math.random()
+        console.log(losowa_liczba)
+      */
+     </script>
+    
+  </body>
+</html>

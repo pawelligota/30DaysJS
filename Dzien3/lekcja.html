@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dzien 3 Lekcja</title>
+    </head>
+    <body>
+        <script>
+            /*
+            Dzien 3
+
+            */
+
+            /*
+            Boole tzn true/false moga byc --Truthy-- albo --Falsy--
+            --Truthy--:
+            -Wszystkie liczby(dodatnie i ujemne) oprocz 0 (zero)
+            -Wszystkie stringi oprocz pustych
+            -bool ktory jest true
+
+            --Falsy--:
+            0 (zero)
+            0n
+            null
+            undefined
+            NaN
+            bool ktory jest false
+            puste stringi
+
+            ------------- OPERATORY -------------
+            Operatory arytmetyczne:
+            +
+            -
+            *
+            /
+            % (moduł, zwraca reszte z dzielenia ;) )
+            ** (potegowanie)
+
+            Operatory przypisania:
+            =
+            +=  x+=y   czyli x+y ale wartosc jest zachowana w x ITD.
+            -=
+            *=
+            /=
+            %=
+            **=
+
+            Operatory porównania:
+            ==  rowna sie w wartosci
+            === rowna sie w wartosci i typie danych
+            !=  nie rowna sie
+            >   wieksze
+            <   mniejsze
+            >=  wieksze badz rowne
+            <=
+
+             DYGRESJA \/\/\/\/
+            NaN == NaN  // FALSE
+            NaN === NaN // FALSE
+            typeof(NaN) // number
+
+            Operatory logiczne:
+            &&  ampersand   jezeli oba True to True jezeli jeden lub wiecej false to false
+            ||  rura        rura "przepuszcza" czyli faworyzuje true tzn. jezeli True || False WYNIK TRUE.
+            !   negacja     zamienia true w false i NIE na odwrót
+            */
+
+            //Test ampersanda
+            const check = 4>3 && 7>2
+            console.log(check)  // TRUE bo oba porownanie sa true
+            const check1 = 16<32 && 105<250
+            console.log(check1) // TRUE bo oba porownanie sa true
+            const check2 = 3=='3' && 3==='3'
+            console.log(check2)
+
+            //Operator inkrementacji:
+            //PRE-INKREMENTACJA
+            let liczba = 0
+            console.log(++liczba)   // 1
+            console.log(liczba)     // 1
+
+            //POST-INKREMENTACJA
+            let liczba1 = 0
+            console.log(liczba++)   // 0
+            console.log(liczba)     // 1
+
+            //Operator dekrementacji:
+            //PRE-DEKREMENTACJA
+            let liczba2 = 0
+            console.log(--liczba2) // -1
+            console.log(liczba2)   // -1
+
+            //POST-DEKREMENTACJA
+            let liczba3 = 0
+            console.log(liczba2--) // 0
+            console.log(liczba2)   // -1
+
+            // OPERATORY TRÓJSKŁADNIKOWE (Ternary Operators) czyli "?" (wyswietla jezeli true) oraz ":" (wyswietla jezeli false)
+            let mojeIQ = 82
+            mojeIQ > 100
+            ? console.log('Jestes geniuszem')
+            : console.log('Niestety jestes debilem')
+            mojeIQ+50
+            ? console.log('Jestes geniuszem')
+            : console.log('Niestety jestes debilem')
+
+            //Window alert
+            //alert('wiadomosc')
+
+            //prompt() - okienko do wprowadzania wyskakujace jako alert
+            //let liczba1 = prompt('Podaj liczbe:', 'Tutaj powinna znajdowac sie liczba')
+
+            //confirm() - okienko tak lub nie - zwraca true/false
+            //let liczba4 = confirm('Czy jestes tego pewien')
+            //console.log(liczba4)
+
+            // ------------- OBIEKTY DATY -------------
+            const teraz = new Date()
+            console.log(teraz)
+            console.log(teraz.getFullYear())
+            console.log(teraz.getMonth())
+            console.log(teraz.getDate())
+            console.log(teraz.getHours())
+            console.log(teraz.getTime())
+
+
+        </script>
+    </body>
+</html>
