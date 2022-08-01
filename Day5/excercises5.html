@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dzien 5 Zadania</title>
+    </head>
+    <body>
+        <script>
+            //---------Level 1---------
+            //1.
+            const arr = Array()
+            const pusta_tablica = Array()
+            console.log(pusta_tablica)
+            //2.
+            const tablica_wiecej_niz_5 = Array(6)
+            console.log(tablica_wiecej_niz_5)
+            //3.
+            console.log(tablica_wiecej_niz_5.length)
+            //4.
+            let last_index_of_tablicawiecejniz5 = tablica_wiecej_niz_5.length - 1
+            console.log(
+            tablica_wiecej_niz_5[0],
+            tablica_wiecej_niz_5[3],
+            'Ostatni element tablicy:',tablica_wiecej_niz_5[last_index_of_tablicawiecejniz5])
+            //5.
+            const mixedDataTypes = [1,'1',true,[1],1.1,NaN]
+            let mixedDataTypes_length = mixedDataTypes.length
+            console.log(mixedDataTypes)
+            console.log('mixedDataTypes length is', mixedDataTypes_length)
+            //6.
+            const itCompanies = ['Facebook', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle', 'Amazon']
+            //7.
+            console.log(itCompanies)
+            //8.
+            console.log(itCompanies.length)
+            //9.
+            let last_idex_of_itCompanies = itCompanies.length - 1
+            console.log(
+            itCompanies[0],
+            itCompanies[4],
+            itCompanies[last_idex_of_itCompanies]
+            )
+
+            //10.
+            let itCompanies_druk = ''
+            for(var i = 0; i < itCompanies.length; i++ ){
+                let wynik = itCompanies_druk += itCompanies[i] + ' '
+            }
+            console.log(itCompanies_druk)
+            // EWENTUALNIE XDDD
+            console.log(itCompanies.toString())
+            //albo XD
+            console.log(itCompanies.join(', '))
+
+            //11.
+            let itCompanies_wielkie_litery = ''
+            for(var i = 0; i < itCompanies.length; i++){
+                let wynik = itCompanies_wielkie_litery += (itCompanies[i].toUpperCase()) + ' '
+            }
+            console.log(itCompanies_wielkie_litery)
+
+            //12.
+            itCompanies_12 = ''
+            itCompanies_oracle_index = itCompanies.indexOf('Oracle')
+            for(var i = 0; i<=itCompanies_oracle_index; i++){
+                wynik = itCompanies_12 += itCompanies[i] + ',' 
+            }
+            console.log(itCompanies_12,'and',itCompanies[itCompanies_oracle_index+1],'are big IT companies.')
+
+            //13.
+            let itCompanies_check = 'Apple'    //prompt('Podaj nazwe firmy')
+            if(itCompanies.includes(itCompanies_check)){
+                console.log(itCompanies_check)
+            } else {
+                console.log('Nie ma tej firmy na liscie.')
+            }
+            //14.
+            /*
+            const regex = /[a-z]*[o][a-z]/
+            itCompanies_double_o = itCompanies.toString().match()
+            itCompanies_double_o
+            */
+            //15.
+            console.log('Nieposortowana:',itCompanies)
+            console.log('Posortowana:',itCompanies.sort())
+            //16.
+            console.log('Odwrócona:',itCompanies.reverse())
+            console.log('------------SLICES----------')
+            //17.
+            console.log(itCompanies.slice(4,7))
+            //18.
+            console.log(itCompanies.slice(0,3))
+            //19.
+            console.log(itCompanies.slice(3,4))
+            //20.
+            itCompanies.shift()
+            console.log(itCompanies)
+            //21.
+            itCompanies.splice(2,2)
+            console.log(itCompanies)
+            //22.
+            itCompanies.pop()
+            console.log(itCompanies)
+            //23.
+            itCompanies.splice(0,itCompanies.length)
+            console.log(itCompanies)
+            //---------LEVEL 2-----------
+            console.log('--------Level 2--------')
+
+            //1.
+
+            //2.
+            let text2 = 'I love teaching and empowering people. I teach HTML, CSS, JS, React, Python.'
+            
+            console.log(text2.replace(/\.\,/g,""))
+            console.log(text2)
+            
+
+
+        </script>
+    </body>
+</html>
