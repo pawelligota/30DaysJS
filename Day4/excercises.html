@@ -20,7 +20,7 @@
             // juz to robilem
 
             //3.
-            
+            /*
             let a = 4
             let b = 3
             if (a>b){
@@ -29,7 +29,7 @@
                 console.log(`B(${b}) jest wieksze od A(${a})`)
             }
             a>b ? console.log(`A(${a}) jest wieksze od B(${b})`) : console.log(`B(${b}) jest wieksze od A(${a})`);
-            
+            */
             /*
             // 4.
             let liczba = prompt('Podaj liczbe aby sprawdzic czy jest parzysta: ')
@@ -83,8 +83,29 @@
             */
 
             //3.
-            ///chyba cie jeblo
+            /*
+            let weekend = ['Sobota', 'Niedziela']
+            let dzien = prompt('Podaj dzien')
+            if (weekend.includes(dzien)){
+                console.log(dzien,'jest w weekend')
+            } else {
+                console.log(dzien,'jest normalnym dniem')
+            }
+            */
 
+            //------------LEVEL 3-----------
+            //1.
+            let dni_31 = ['Styczen', 'Marzec', 'Maj', 'Lipiec', 'Sierpien', 'Pazdziernik', 'Grudzien']
+            let dni_30 = ['Listopad', 'Czerwiec', 'Kwiecien', 'Wrzesien']
+            let luty = ['Luty']
+            let miesiac = prompt('Podaj Miesiac')
+            if (dni_31.includes(miesiac)){
+                console.log(miesiac,'ma 31 dni.')
+            } else if(dni_30.includes(miesiac)) {
+                console.log(miesiac,'ma 30 dni.')
+            } else {
+                console.log(miesiac,'ma 28 dni')
+            }
         </script>
     </body>
 </html>

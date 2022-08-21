@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lekcja Day9</title>
+</head>
+<body>
+<script>
+    //Callback functions
+
+const callback = (n) => {
+return n * n
+}
+
+function razy (callback,n){
+    return callback(n) * 2
+}
+console.log(razy(callback,3))
+
+//zagniezdzanie callback functions
+
+const raz = n => {
+    const dwa = m => {
+        const trzy = b => {
+            return n * m * b
+        }
+        return trzy
+    }
+    return dwa
+}
+
+console.log(raz(2)(2)(2))
+
+// zsumowanie tablicy za pomoca callback function
+
+const numery = [1,2,3,4,5]
+
+const SumujTablice = tab => {
+    let sum = 0;
+    const callback = function(element) {
+        sum += element
+    }
+    tab.forEach(callback)
+    return sum
+}
+
+console.log(SumujTablice(numery))
+
+//foreach iteruje przez tablice
+let sum = 0;
+const numbers = [1,2,3]
+numbers.forEach(num => console.log(num))
+
+numbers.forEach(num => sum += num)
+console.log(sum)
+
+//map iteruje przez tablice i zmienia jej elementy
+const numbers_square = numbers.map(num => num * num)
+console.log(numbers_square)
+
+const countries = [
+  'Albania',
+  'Bolivia',
+  'Canada',
+  'Denmark',
+  'Ethiopia',
+  'Finland',
+  'Germany',
+  'Hungary',
+  'Ireland',
+  'Japan',
+  'Kenya',
+]
+
+const countries_id = countries.map((country)=>country.toUpperCase().slice(0,3))
+console.log(countries_id)
+
+//filter filtruje elementy ktore spelniaja waruner i zwraca nowa tablice
+ const sustab = [6,5,2,2,4,4,5,5,2,4,8,6,3,5,2]
+const sustab_only2 = sustab.filter((number)=>number ==2)
+console.log(sustab_only2)
+
+const scores = [
+  { name: 'Asabeneh', score: 95 },
+   { name: 'Lidiya', score: 98 },
+  { name: 'Mathias', score: 80 },
+  { name: 'Elias', score: 50 },
+  { name: 'Martha', score: 85 },
+  { name: 'John', score: 100 },
+]
+
+const scoreswiecejniz80 = scores.filter((score)=>score.score>80)
+console.log(scoreswiecejniz80)
+
+//reduce((acc,cur)initialvalue) zwraca wartosc
+const suma = numbers.reduce((acc,cur) => acc + cur, 0)
+console.log(suma)
+
+//every sprawdza czy wszystkie elementy sa podobne, zwraca bool
+
+//find zwraca pierwszy element ktory spelnia warunek
+
+//findindex zwraca index pierwszego elementu ktory spelnia warunek
+
+//some sprawdza czy jakikolwiek element tablicy spelnia warunek
+
+//sort 
+const numerki = [9.81, 3.14, 100, 37]
+//sortuj rosnaco
+numerki.sort((a,b)=>a-b)
+console.log(numerki)
+//sortuj malejaco
+numerki.sort((a,b)=>b-a)
+console.log(numerki)
+
+
+</script>
+</body>
+</html>

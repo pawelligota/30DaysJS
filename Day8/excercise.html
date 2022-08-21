@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Excercise8</title>
+    </head>
+    <body>
+        <script>
+                const users = [            
+    {
+        _id: 'ab12ex',
+        username: 'Alex',
+        email: 'alex@alex.com',
+        password: '123123',
+        createdAt:'08/01/2020 9:00 AM',
+        isLoggedIn: false
+    },
+    {
+        _id: 'fg12cy',
+        username: 'Asab',
+        email: 'asab@asab.com',
+        password: '123456',
+        createdAt:'08/01/2020 9:30 AM',
+        isLoggedIn: true
+    },
+    {
+        _id: 'zwf8md',
+        username: 'Brook',
+        email: 'brook@brook.com',
+        password: '123111',
+        createdAt:'08/01/2020 9:45 AM',
+        isLoggedIn: true
+    },
+    {
+        _id: 'eefamr',
+        username: 'Martha',
+        email: 'martha@martha.com',
+        password: '123222',
+        createdAt:'08/01/2020 9:50 AM',
+        isLoggedIn: false
+    },
+    {
+        _id: 'ghderc',
+        username: 'Thomas',
+        email: 'thomas@thomas.com',
+        password: '123333',
+        createdAt:'08/01/2020 10:00 AM',
+        isLoggedIn: false
+    }
+    ];
+
+    const products = [
+  {
+    _id: 'eedfcf',
+    name: 'mobile phone',
+    description: 'Huawei Honor',
+    price: 200,
+    ratings: [
+      { userId: 'fg12cy', rate: 5 },
+      { userId: 'zwf8md', rate: 4.5 }
+    ],
+    likes: []
+  },
+  {
+    _id: 'aegfal',
+    name: 'Laptop',
+    description: 'MacPro: System Darwin',
+    price: 2500,
+    ratings: [],
+    likes: ['fg12cy']
+  },
+  {
+    _id: 'hedfcg',
+    name: 'TV',
+    description: 'Smart TV:Procaster',
+    price: 400,
+    ratings: [{ userId: 'fg12cy', rate: 5 }],
+    likes: ['fg12cy']
+  }
+]
+
+const DzisiejszaData = new Date()
+            // SIGN UP TO DATABASE
+        function signUp(){
+            //needed variables
+            let wynik = ''
+            let flag = 0
+            let warunki = ['tak','nie']
+            let online = false
+            //initial entries
+            let podane_id = prompt('Podaj id uzytkownika:')
+            let username = prompt('Podaj imie:')
+            let email = prompt('Podaj email:')
+            let password = prompt('Podaj haslo:')
+            //entry asking about logging in
+            let isLoggedIn = prompt('Czy chcesz byc zalogowany? tak/nie')
+            // logic that denies the user from entering anything else than tak/nie
+            //if(isLoggedIn != 'tak'|| isLoggedIn != 'nie'){
+            while(isLoggedIn != 'tak' && isLoggedIn != 'nie'){
+                isLoggedIn = prompt('Czy chcesz byc zalogowany? tak/nie')
+                if(isLoggedIn=='tak'){
+                    online = true
+                } else if (isLoggedIn=='nie'){
+                    online = false
+                }
+            }
+            //flaga czy uzytkownik istnieje juz w bazie danych
+            /* beta v.01
+            users.forEach(element => {
+                if(element._id == podane_id){
+                    flag = 1
+                } 
+            */
+            users.forEach(element => {
+                if((Object.values(element)).includes(podane_id)){
+                    flag = 1
+                } 
+            });
+            // acting accordingly
+            
+            if(flag==0){
+            //wprowadzenie uzytkownika do bazy danych
+            users.push({_id: podane_id,
+            username: username,
+            email: email,
+            password: password,
+            createdAt: DzisiejszaData.toLocaleString(),
+            isLoggedIn: online})
+            wynik = `Użytkownik o id ${podane_id}, został dodany do bazy danych`
+            } else {
+            wynik = `Użytkownik o id ${podane_id} NIE zostal dodany do bazy danych ponieważ istnieje juz w bazie danych!`
+            }
+    
+            return wynik;
+        }
+
+        // RATE PRODUCT
+
+        function rateProduct(){
+            let iduzytkownika = prompt('Podaj swoje ID')
+            let productID = prompt('Podaj id produktu ktory chcesz ocenic.')
+            let ocena = prompt('Podaj ocene 0-5')
+            let flag_user = 0;
+            let flag_product = 0;
+
+            // weryfikacja czy uzytkownik istnieje w bazie danych
+            for(el of users){
+                if(el._id == iduzytkownika){
+                    flag_user = 1
+                }
+            }
+            /* beta v0.2
+            for(let i=0; i<=users.length; i++){
+                if(users[i]._id == iduzytkownika){
+                    flag_user = 1
+                    return
+                }
+            }
+            */
+            /* beta v0.1
+            users.forEach(element => {
+                if(element._id == iduzytkownika){
+                    flag_user = 1
+                    return
+                }
+            });
+            */ 
+            // weryfikacja czy produkt istnieje w bazie danych
+            for(el of products){
+                if(el._id == productID){
+                    flag_product = 1
+                }
+            }
+            /* beta v.02
+            for(let i=0; i<=products.length; i++){
+                if(products[i]._id == productID){
+                    flag_product = 1
+                    return
+                }
+            }
+            */
+            /* beta v0.1
+             products.forEach(element => {
+                if(element._id == productID){
+                    flag_product = 1
+                    return
+                }
+            });
+            */
+
+            if(flag_user==1){
+               if(flag_product==1){
+                //akcje jezeli znaleziono uzytkownika i produkt w bazie
+                products.ratings.push({userId: iduzytkownika, rate: ocena})
+                    console.log(`Pomyslnie wystawiono ocene ${ocena} dla produktu o id ${element._id}. :)`)
+               } else {
+                //akcje jezeli nie znaleziono produktu w bazie danych
+                console.log(`Nie znaleziono produktu o id ${productID}`)
+               }
+            } else {
+                //akcje jezeli nie znaleziono uzytkownika w bazie danych
+                console.log(`Uzytnownik ${iduzytkownika} nie istnieje w bazie danych. ;(`)
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+        // TEST AREA AND OUTPUTS
+        /*
+    console.log(signUp())
+    console.log(users[users.length-1])
+    console.log(users)
+*/ 
+
+rateProduct()
+console.log(products[products.length-1])
+console.log(products)
+
+/*
+users.forEach(element => {
+    let podaneid = 'fg12cy'
+    
+    console.log(element._id)
+    console.log(element._id == podaneid)
+    if(element._id == podaneid){
+        console.log('kupa')
+    }
+});
+*/
+        </script>
+    </body>
+</html>
